@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokedex</title>
+    <title>Pokedex Interativa</title>
 
     <!-- Normalize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
@@ -24,18 +24,66 @@
 
 <body>
     <section class="content">
-        <h1>Pokedex</h1>
+        <header class="header">
+            <h1>Pokedex Interativa</h1>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Buscar Pokémon...">
+                <button id="searchButton">🔍</button>
+            </div>
+            <div class="filters">
+                <select id="typeFilter">
+                    <option value="">Todos os tipos</option>
+                    <option value="normal">Normal</option>
+                    <option value="fire">Fogo</option>
+                    <option value="water">Água</option>
+                    <option value="electric">Elétrico</option>
+                    <option value="grass">Grama</option>
+                    <option value="ice">Gelo</option>
+                    <option value="fighting">Lutador</option>
+                    <option value="poison">Veneno</option>
+                    <option value="ground">Terra</option>
+                    <option value="flying">Voador</option>
+                    <option value="psychic">Psíquico</option>
+                    <option value="bug">Inseto</option>
+                    <option value="rock">Pedra</option>
+                    <option value="ghost">Fantasma</option>
+                    <option value="dragon">Dragão</option>
+                    <option value="dark">Sombrio</option>
+                    <option value="steel">Metálico</option>
+                    <option value="fairy">Fada</option>
+                </select>
+            </div>
+        </header>
+
+        <div class="pokemon-count" id="pokemonCount"></div>
 
         <ol id="pokemonList" class="pokemons">
-            <!-- ..... Pokemons here ..... -->
+            <!-- Pokémons carregados aqui -->
         </ol>
 
         <div class="pagination">
             <button id="loadMoreButton" type="button">
-                Load More
+                Carregar Mais
+            </button>
+            <button id="backToTop" type="button" style="display: none;">
+                ↑ Topo
             </button>
         </div>
     </section>
+
+    <!-- Modal para detalhes -->
+    <div id="pokemonModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Loading -->
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <p>Carregando Pokémon...</p>
+    </div>
 
     <!-- Nosso JS -->
     <script src="/assets/js/pokemon-model.js"></script>
